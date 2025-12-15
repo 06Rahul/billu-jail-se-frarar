@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My GitHub Pages Welcome</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    header {
+        background-color: #007bff;
+        color: white;
+        padding: 20px 0;
+    }
+
+    main {
+        padding: 50px 20px;
+    }
+
+    #message {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+        color: #007bff;
+    }
+
+    #dynamicButton {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    #dynamicButton:hover {
+        background-color: #218838;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #ddd;
+        padding: 10px 0;
+    }
+</style>
+
+<body>
+    <header>
+        <h1>Welcome to My Project Repository!</h1>
+        <p>This is a dynamic welcome page hosted via GitHub Pages.</p>
+    </header>
+
+    <main>
+        <p id="message">Click the button below to see a dynamic change!</p>
+
+        <button id="dynamicButton">Click Me</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 GitHub Pages Demo</p>
+    </footer>
+
+    <script>
+        // Get references to the HTML elements
+        const button = document.getElementById('dynamicButton');
+        const message = document.getElementById('message');
+
+        // Counter to track button clicks
+        let clickCount = 0;
+
+        // Function to run when the button is clicked
+        function updateContent() {
+            clickCount++;
+
+            // Change the message based on the number of clicks
+            if (clickCount === 1) {
+                message.textContent = 'Great! You clicked it once.';
+            } else if (clickCount < 5) {
+                message.textContent = `You've clicked the button ${clickCount} times! Keep going.`;
+            } else {
+                message.textContent = "That's enough clicking! Check out the repo code instead. :)";
+                button.disabled = true; // Disable the button after a few clicks
+                button.textContent = "Disabled";
+            }
+        }
+
+        // Add an event listener to the button
+        button.addEventListener('click', updateContent);
+
+        // Set an initial message after the page loads
+        console.log("Welcome page script loaded successfully!");
+    </script>
+</body>
+
+</html>
