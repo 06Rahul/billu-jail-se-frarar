@@ -1,4 +1,5 @@
-public class Solution {
+public class NUmber2110
+ {
     public long GetDescentPeriods(int[] prices) {
         int n = prices.Length;
         long count = 1;
