@@ -1,0 +1,18 @@
+public class NUmber2110
+ {
+    public long GetDescentPeriods(int[] prices) {
+        int n = prices.Length;
+        long count = 1;
+        int len = 1;
+
+        for (int i = 1; i < n; i++) {
+            if (prices[i - 1] - prices[i] == 1)
+                len++;
+            else
+                len = 1;
+
+            count += len;
+        }
+           return count;
+    }
+}
